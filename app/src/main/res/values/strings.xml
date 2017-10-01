@@ -1,0 +1,60 @@
+<resources>
+    <!--Application string-->
+    <string name="app_name">About_me</string>
+
+    <!--Main_layout string-->
+    <string name="txt_surname">Solnyshkin</string>
+    <string name="txt_name">Egor</string>
+    <string name="txt_patronymic">Nikolaevich</string>
+    <string name="txt_email"><u>sunny_egor@mail.ru</u></string>
+    <string name="txt_phone"><b>+7-951-373-81-22</b></string>
+    <string name="txt_knowledge_1">Basic knowledge Java</string>
+    <string name="txt_knowledge_2">Android (under study)</string>
+    <string name="txt_skill_1">Completed assignments JavaRush.ru (part)</string>
+    <string name="txt_skill_2">Completed home works GeekBrains.ru (Java-0,1)</string>
+    <string name="txt_orientation_txt">Land orientation</string>
+    <string name="txt_university"><b>Novosibirsk State Technical University</b></string>
+    <string name="txt_department"><b>Power Engineering Faculty</b></string>
+    <string name="txt_period">Period: <b>2006-2011 yy.</b></string>
+    <string name="txt_birth_date"><b>Birth date: </b>26.02.1989y.</string>
+    <string name="txt_languages"><b>Languages: </b>basic english</string>
+    <string name="txt_status"><b>Marital status: </b>married</string>
+    <string name="txt_available_car"><b>Availability of car: </b>yes</string>
+
+    <string name="label_Education">Education</string>
+    <string name="label_Skill_Knowledge">Skill and Knowledge</string>
+    <string name="label_Privat_Info">Privat information</string>
+
+    <!--Aliases for skill and knowledge-->
+    <string-array name="skill_knowledge">
+        <item>@string/txt_knowledge_1</item>
+        <item>@string/txt_knowledge_2</item>
+        <item>@string/txt_skill_1</item>
+        <item>@string/txt_skill_2</item>
+    </string-array>
+
+    <!--Aliases for education-->
+    <string-array name="education">
+        <item>@string/txt_period</item>
+        <item>@string/txt_university</item>
+        <item>@string/txt_department</item>
+    </string-array>
+
+    <!--Aliases for privat info-->
+    <string-array name="privat_info">
+        <item>@string/txt_birth_date</item>
+        <item>@string/txt_languages</item>
+        <item>@string/txt_status</item>
+        <item>@string/txt_available_car</item>
+    </string-array>
+
+    <!--Main Menu string-->
+    <string name="txt_menu_copy_all">Copy all info</string>
+    <string name="txt_menu_copy_name">Copy name</string>
+    <string name="txt_menu_email">Copy Email</string>
+    <string name="txt_menu_date_and_time">Date and time</string>
+
+
+    <!--LOG string-->
+    <string name="txt_log">LOG: Done</string>
+</resources>

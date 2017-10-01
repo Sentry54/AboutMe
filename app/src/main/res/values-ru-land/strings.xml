@@ -1,0 +1,29 @@
+<resources>
+    <!--Application string-->
+    <string name="app_name">About me</string>
+
+    <!--Main_layout string-->
+    <string name="txt_surname">Солнышкин</string>
+    <string name="txt_name">Егор</string>
+    <string name="txt_patronymic">Николаевич</string>
+    <string name="txt_email"><u>sunny_egor@mail.ru</u></string>
+    <string name="txt_phone"><b>+7-951-373-81-22</b></string>
+    <string name="txt_knowledge_1">Базовые знания Java</string>
+    <string name="txt_knowledge_2">Знание Android (в процессе изучения)</string>
+    <string name="txt_skill_1">Выполненные задания сайта JavaRush.ru (часть)</string>
+    <string name="txt_skill_2">Выполненные домашние работы сайта GeekBrains.ru (курсы Java-0,1)</string>
+    <string name="txt_my_txt">Альбомная ориентация</string>
+    <string name="txt_university"><b>Новосибирский Государственный Технический Университет</b></string>
+    <string name="txt_department"><b>Факультет Электроэнергетики</b></string>
+    <string name="txt_period">Период: <b>2006-2011 гг.</b></string>
+    <string name="txt_birth_date"><b>Дата рождения: </b>26.02.1989г.</string>
+    <string name="txt_languages"><b>Языки: </b>английский (со словарем)</string>
+    <string name="txt_status"><b>Семейное положение: </b>женат</string>
+    <string name="txt_available_car"><b>Наличие авто: </b>есть</string>
+
+    <string name="label_Education">Образование</string>
+    <string name="label_Skill_Knowledge">Навыки и Умения</string>
+    <string name="label_Privat_Info">Личная информация</string>
+
+
+</resources>

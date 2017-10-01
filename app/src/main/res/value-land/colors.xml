@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Application color   -->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--Work color-->
+    <color name="white">#c8ffffff</color>
+    <color name="black">#c8000000</color>
+    <color name="red">#c8FF0000</color>
+    <color name="blue">#c80000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="txt_color">#FFFF1111</color>
+    <color name="gradient_up_start">#ff8c00</color>
+    <color name="gradient_up_end">#c8828ce6</color>
+
+</resources>

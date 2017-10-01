@@ -1,0 +1,28 @@
+<resources>
+    <!--Application string-->
+    <string name="app_name">About me</string>
+
+    <!--Main_layout string-->
+    <string name="txt_surname">Solnyshkin</string>
+    <string name="txt_name">Egor</string>
+    <string name="txt_patronymic">Nikolaevich</string>
+    <string name="txt_email"><u>sunny_egor@mail.ru</u></string>
+    <string name="txt_phone"><b>+7-951-373-81-22</b></string>
+    <string name="txt_knowledge_1">Basic knowledge Java</string>
+    <string name="txt_knowledge_2">Android (under study)</string>
+    <string name="txt_skill_1">Completed assignments JavaRush.ru (part)</string>
+    <string name="txt_skill_2">Completed home works GeekBrains.ru (Java-0,1)</string>
+    <string name="txt_my_txt">Land orientation</string>
+    <string name="txt_university"><b>Novosibirsk State Technical University</b></string>
+    <string name="txt_department"><b>Power Engineering Faculty</b></string>
+    <string name="txt_period">Period: <b>2006-2011 yy.</b></string>
+    <string name="txt_birth_date"><b>Birth date: </b>26.02.1989y.</string>
+    <string name="txt_languages"><b>Languages: </b>basic english</string>
+    <string name="txt_status"><b>Marital status: </b>married</string>
+    <string name="txt_available_car"><b>Availability of car: </b>yes</string>
+
+    <string name="label_Education">Education</string>
+    <string name="label_Skill_Knowledge">Skill and Knowledge</string>
+    <string name="label_Privat_Info">Privat information</string>
+
+</resources>
