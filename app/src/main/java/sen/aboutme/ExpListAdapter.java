@@ -1,8 +1,6 @@
 package sen.aboutme;
 
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
@@ -13,11 +11,15 @@ import java.util.ArrayList;
 public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private ArrayList<ArrayList<String>> mGroups;
-    private Context mContext;
+    private ArrayList<String> mTitle;
 
-    public ExpListAdapter(Context context, ArrayList<ArrayList<String>> groups){
-        mContext = context;
+    public ExpListAdapter(ArrayList<String> title, ArrayList<ArrayList<String>> groups) {
+        mTitle = title;
         mGroups = groups;
+    }
+
+    public String getTitle(int groupPosition) {
+        return mTitle.get(groupPosition);
     }
 
     @Override
@@ -60,24 +62,12 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
                              ViewGroup parent) {
 
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.group_view, null);
+            convertView = View.inflate(parent.getContext(), R.layout.group_view, null);
         }
 
-        // TODO не пойму как взять наименование текствого списка: Skills (R.array.Skills) или Knowledge(R.array.Knowledge)
         TextView textGroup = (TextView) convertView.findViewById(R.id.textGroup);
+        textGroup.setText(getTitle(groupPosition));
 
-        if (mGroups.get(groupPosition).contains(mContext.getString(R.string.txt_period))) {
-            textGroup.setText(mContext.getString(R.string.label_Education));
-        }
-
-        if (mGroups.get(groupPosition).contains(mContext.getString(R.string.txt_birth_date))) {
-            textGroup.setText(mContext.getString(R.string.label_Privat_Info));
-        }
-
-        if (mGroups.get(groupPosition).contains(mContext.getString(R.string.txt_skill_1))) {
-            textGroup.setText(mContext.getString(R.string.label_Skill_Knowledge));
-        }
         return convertView;
     }
 
@@ -85,8 +75,7 @@ public class ExpListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild,
                              View convertView, ViewGroup parent) {
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.child_view, null);
+            convertView = View.inflate(parent.getContext(), R.layout.child_view, null);
         }
 
         TextView textChild = (TextView) convertView.findViewById(R.id.textChild);

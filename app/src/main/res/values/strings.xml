@@ -12,7 +12,7 @@
     <string name="txt_knowledge_2">Android (under study)</string>
     <string name="txt_skill_1">Completed assignments JavaRush.ru (part)</string>
     <string name="txt_skill_2">Completed home works GeekBrains.ru (Java-0,1)</string>
-    <string name="txt_orientation_txt">Land orientation</string>
+    <string name="txt_my_txt">Portret orientation</string>
     <string name="txt_university"><b>Novosibirsk State Technical University</b></string>
     <string name="txt_department"><b>Power Engineering Faculty</b></string>
     <string name="txt_period">Period: <b>2006-2011 yy.</b></string>
@@ -53,8 +53,15 @@
     <string name="txt_menu_copy_name">Copy name</string>
     <string name="txt_menu_email">Copy Email</string>
     <string name="txt_menu_date_and_time">Date and time</string>
-
+    <string name="txt_menu_date">Date</string>
+    <string name="txt_menu_time">Time</string>
 
     <!--LOG string-->
     <string name="txt_log">LOG: Done</string>
+
+    <!--Toast  string-->
+    <string name="txt_toast_menu_copy_all">Copy all info</string>
+    <string name="txt_toast_menu_copy_name">Copy full name</string>
+    <string name="txt_toast_menu_email">Copy Email</string>
+
 </resources>

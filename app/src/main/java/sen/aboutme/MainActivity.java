@@ -2,6 +2,7 @@ package sen.aboutme;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,14 +19,17 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
+    String LOG, personalData;
+    Resources res;
     ImageView image;
     TextView fullName, email, phone;
-    ArrayList<ArrayList<String>> skillKnow, privatInfo, education;
-    ExpandableListView expSkillKnow, expPrivatInfo, expEducation;
+    ArrayList<String> titleArray;
+    ArrayList<ArrayList<String>> myData;
+    ExpandableListView expMyData;
     ClipboardManager mClipboardManager;
     ClipData mClipData;
-    StringBuilder personalData;
-    final String LOG = getString(R.string.txt_log);
+    DataPickFragment dataFragment;
+    TimePickFragment timeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,40 +40,38 @@ public class MainActivity extends AppCompatActivity {
 
     public void initUI() {
 
+        res = getResources();
+        LOG = res.getString(R.string.txt_log);
+
         image = (ImageView) findViewById(R.id.imageView);
         image.setImageResource(R.drawable.image);
 
+        personalData = getString(R.string.txt_surname) + " " + getString(R.string.txt_name) + " " + getString(R.string.txt_patronymic);
         fullName = (TextView) findViewById(R.id.txt_full_name);
-        personalData = new StringBuilder().
-                append(getString(R.string.txt_surname) + " " + getString(R.string.txt_name) + " " +
-                        getString(R.string.txt_patronymic));
         fullName.setText(personalData);
 
         email = (TextView) findViewById(R.id.txt_email);
         phone = (TextView) findViewById(R.id.txt_phone);
 
-        education = new ArrayList<>();
-        education.add(new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.education))));
+        myData = new ArrayList<>();
+        myData.add(new ArrayList<>(Arrays.asList(res.getStringArray(R.array.education))));
+        myData.add(new ArrayList<>(Arrays.asList(res.getStringArray(R.array.skill_knowledge))));
+        myData.add(new ArrayList<>(Arrays.asList(res.getStringArray(R.array.privat_info))));
 
-        expEducation = (ExpandableListView) findViewById(R.id.exp_education);
-        ExpListAdapter adapterE = new ExpListAdapter(getApplicationContext(), education);
-        expEducation.setAdapter(adapterE);
+        titleArray = new ArrayList<>();
+        titleArray.add(getString(R.string.label_Education));
+        titleArray.add(getString(R.string.label_Skill_Knowledge));
+        titleArray.add(getString(R.string.label_Privat_Info));
 
-        skillKnow = new ArrayList<>();
-        skillKnow.add(new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.skill_knowledge))));
+        expMyData = (ExpandableListView) findViewById(R.id.exp_my_data);
+        ExpListAdapter adapterData = new ExpListAdapter(titleArray, myData);
+        expMyData.setAdapter(adapterData);
 
-        expSkillKnow = (ExpandableListView) findViewById(R.id.exp_skill_know);
-        ExpListAdapter adapterSK = new ExpListAdapter(getApplicationContext(), skillKnow);
-        expSkillKnow.setAdapter(adapterSK);
+        dataFragment = new DataPickFragment();
 
-        privatInfo = new ArrayList<>();
-        privatInfo.add(new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.privat_info))));
+        timeFragment = new TimePickFragment();
 
-        expPrivatInfo = (ExpandableListView) findViewById(R.id.exp_privat_info);
-        ExpListAdapter adapterPI = new ExpListAdapter(getApplicationContext(), privatInfo);
-        expPrivatInfo.setAdapter(adapterPI);
-
-        //Toast.makeText(this, getString(R.string.txt_orientation_txt), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, getString(R.string.txt_my_txt), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -81,22 +84,38 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menu_copy_all:
-                getCopyData(R.string.txt_menu_copy_all);
+                //TODO сделать копирование всего содержимого
+                //getCopyData(personalData.toString());
+                Log.d(LOG, getString(R.string.txt_menu_copy_all));
+                Toast.makeText(getApplicationContext(), getString(R.string.txt_toast_menu_copy_all), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_copy_name:
-                getCopyData(R.string.txt_menu_copy_name);
+                getCopyData(personalData);
+                Log.d(LOG, getString(R.string.txt_menu_copy_name));
+                Toast.makeText(getApplicationContext(), getString(R.string.txt_toast_menu_copy_name), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menu_copy_email:
-                getCopyData(R.string.txt_menu_email);
+                getCopyData(getString(R.string.txt_email));
+                Log.d(LOG, getString(R.string.txt_menu_email));
+                Toast.makeText(getApplicationContext(), getString(R.string.txt_toast_menu_email), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menu_date_time:
+                break;
+            case R.id.menu_date:
+                dataFragment.show(getSupportFragmentManager(), "dataPicker");
+                Log.d(LOG, getString(R.string.txt_menu_date));
+                break;
+            case R.id.menu_time:
+                timeFragment.show(getSupportFragmentManager(), "timePicker");
+                Log.d(LOG, getString(R.string.txt_menu_time));
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void getCopyData(int string){
+    public void getCopyData(String text) {
         mClipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        Log.d(LOG, getString(string));
-        mClipData = ClipData.newPlainText("\"" + getString(string)+ "\"",getString(string));
+        mClipData = ClipData.newPlainText("\"" + text + "\"", text);
         mClipboardManager.setPrimaryClip(mClipData);
     }
 }

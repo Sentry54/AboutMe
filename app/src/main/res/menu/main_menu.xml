@@ -13,4 +13,20 @@
         android:id="@+id/menu_copy_email"
         android:title="@string/txt_menu_email" />
 
+    <item
+        android:id="@+id/menu_date_time"
+        android:title="@string/txt_menu_date_and_time">
+
+        <!--sub menu-->
+        <menu>
+            <item
+                android:id="@+id/menu_date"
+                android:title="@string/txt_menu_date" />
+            <item
+                android:id="@+id/menu_time"
+                android:title="@string/txt_menu_time" />
+        </menu>
+    </item>
+
+
 </menu>
